@@ -9,11 +9,12 @@ public class SceneChanger : MonoBehaviour
         
     //     SceneManager.LoadScene(sceneName);
     // }
+    public string sceneName;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("You are dead !");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

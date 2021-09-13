@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DestroyOnTouch : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D other)
+    public UnityEvent whenPickUP;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.collider.CompareTag("Player"))
+
+        if (collision.CompareTag("Player"))
         {
+            whenPickUP?.Invoke();
             Destroy(gameObject);
         }
     }

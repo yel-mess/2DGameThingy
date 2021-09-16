@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(Rigidbody2D))]// pour mettre les composant directement
+[RequireComponent(typeof(BoxCollider2D))]
 public class MovingMonster : Monster
 {
+    [Tooltip("Monster speed")]//pour expliquer
     public Vector2 speed = Vector2.zero;
 
     private SpriteRenderer spriteRenderer;
 
     public float hitRange;
-    // Start is called before the first frame update
+    
+    private Animator animator;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,11 +30,22 @@ public class MovingMonster : Monster
         
 
         if (speed.x < 0) {
-            spriteRenderer.flipX = true;
+            if (animator != null) { //s'il n'y a pas d'animator je flippe
+                animator.SetBool("Right", false);
+            }
+            else {
+                spriteRenderer.flipX = true;
+            }
             start = (Vector2)transform.position + Vector2.left * 0.51f;
             direction = Vector2.left;
         }
         else {
+            if (animator != null) { //s'il n'y a pas d'animator je flippe
+                animator.SetBool("Right", true);
+            }
+            else {
+                spriteRenderer.flipX = false;
+            }
             spriteRenderer.flipX = false;
             start = (Vector2)transform.position + Vector2.right * 0.51f;
             direction = Vector2.right;

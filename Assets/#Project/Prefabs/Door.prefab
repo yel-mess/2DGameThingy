@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc458d0f0a43ea44abdc79bf1bc77ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 1
+  isOpen: 0
   doorOpen: {fileID: 21300000, guid: fe10e6e7fef646d4eb0c4ddca405a88d, type: 3}
   doorClosed: {fileID: 21300000, guid: c98e20b39343dfa41b4780e15fc093a5, type: 3}
   sceneName: Scene2

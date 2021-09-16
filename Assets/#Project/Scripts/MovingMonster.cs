@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody2D))]// pour mettre les composant directement
-[RequireComponent(typeof(BoxCollider2D))]
+
 public class MovingMonster : Monster
 {
     [Tooltip("Monster speed")]//pour expliquer
@@ -55,7 +54,7 @@ public class MovingMonster : Monster
         RaycastHit2D hit = Physics2D.Raycast(start, direction, hitRange);
         
         
-        if(hit.collider != null) {
+        if(hit.collider != null && !hit.transform.CompareTag("Player")) {
             speed.x *= -1;
         }
         //deplacement

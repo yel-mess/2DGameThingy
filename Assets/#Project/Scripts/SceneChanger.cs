@@ -29,6 +29,5 @@ public class SceneChanger : MonoBehaviour
     public void Unlock() {
         isOpen = true;
         GetComponent<SpriteRenderer>().sprite = doorOpen;
-        Debug.Log("Door is open");
     }
 }

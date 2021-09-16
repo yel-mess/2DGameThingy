@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]// pour mettre les composant directement
+[RequireComponent(typeof(BoxCollider2D))]
 public class Monster : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void OnTriggerEnter2D(Collider2D collision) {
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.CompareTag("Player")) {
+            LevelsManager.LoseLife();
+        }
     }
 }
